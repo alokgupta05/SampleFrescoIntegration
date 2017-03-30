@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.example.fresco.myapplication"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    dexOptions {
+        preDexLibraries = false
+        javaMaxHeapSize "5120M"
+        jumboMode = true
+        incremental false
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+   /* compile project(':AppCompat')*/
+    compile 'com.android.support:appcompat-v7:22.0.0'
+    compile "com.android.support:support-v4:22.2.0"
+    compile 'com.facebook.fresco:fresco:0.11.0'
+    compile "com.facebook.fresco:imagepipeline-okhttp:0.11.0"
+}
